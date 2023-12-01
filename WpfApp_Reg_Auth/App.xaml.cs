@@ -14,7 +14,7 @@ namespace WpfApp_Reg_Auth
     /// </summary>
     public partial class App : Application
     {
-        public static Reg_Auth_SafEntities DB = new Reg_Auth_SafEntities();
-        public static bool isAdmin = false;
+        public static Reg_Auth_SafEntities1 DB = new Reg_Auth_SafEntities1();
+        public static string userTitle = "";
     }
 }

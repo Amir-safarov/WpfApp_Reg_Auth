@@ -23,7 +23,7 @@ namespace WpfApp_Reg_Auth.Components
     
         public int ID { get; set; }
         public string Login { get; set; }
-        public Nullable<int> Password { get; set; }
+        public string Password { get; set; }
         public Nullable<int> ID_Job_Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

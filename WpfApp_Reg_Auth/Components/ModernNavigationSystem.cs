@@ -37,8 +37,8 @@ namespace WpfApp_Reg_Auth.Components
         }
         public static void BackAuth()
         {
-            MessageBox.Show("Ваша роль обнулена.");
-            App.isAdmin = false;
+            MessageBox.Show($"Ваша роль обнулена. Вы были {App.userTitle}");
+            App.userTitle = "";
             NextPage(new PageComponent("Авторизация", new Enter()));
         }
         public static void ClearStoryList()

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1f57009535844b8fbcc4b0f997ed7942" Name="Diagram1">
+      <Diagram DiagramId="cfd18c0c5ec44ce2844f31c1039cc299" Name="Diagram1">
         <EntityTypeShape EntityType="Reg_Auth_SafModel.Client" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="Reg_Auth_SafModel.Gender" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Reg_Auth_SafModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />

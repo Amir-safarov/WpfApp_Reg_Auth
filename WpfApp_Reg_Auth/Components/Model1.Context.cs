@@ -13,10 +13,10 @@ namespace WpfApp_Reg_Auth.Components
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Reg_Auth_SafEntities : DbContext
+    public partial class Reg_Auth_SafEntities1 : DbContext
     {
-        public Reg_Auth_SafEntities()
-            : base("name=Reg_Auth_SafEntities")
+        public Reg_Auth_SafEntities1()
+            : base("name=Reg_Auth_SafEntities1")
         {
         }
     

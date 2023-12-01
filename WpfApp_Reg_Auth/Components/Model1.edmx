@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Reg_Auth_SafModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Reg_Auth_SafModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="ID" />
@@ -42,7 +42,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar(max)" />
-          <Property Name="Password" Type="int" />
+          <Property Name="Password" Type="nvarchar(max)" />
           <Property Name="ID_Job_Title" Type="int" />
         </EntityType>
         <EntityType Name="User_Title">
@@ -134,7 +134,8 @@
             <End Role="Worker" EntitySet="Worker" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Reg_Auth_SafModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -142,7 +143,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="User_Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="User_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="User_Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -176,9 +177,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_Job_Title" Type="Int32" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Client_User" FromRole="User" ToRole="Client" />
           <NavigationProperty Name="User_Title" Relationship="Self.FK_User_User_Title" FromRole="User" ToRole="User_Title" />
@@ -196,7 +197,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Worker_Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Worker_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Worker_Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -251,7 +252,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Reg_Auth_SafEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Reg_Auth_SafEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -280,7 +281,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Reg_Auth_SafModelContainer" CdmEntityContainer="Reg_Auth_SafEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Reg_Auth_SafModelContainer" CdmEntityContainer="Reg_Auth_SafEntities1">
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="Reg_Auth_SafModel.Client">
               <MappingFragment StoreEntitySet="Client">

@@ -32,7 +32,8 @@ namespace WpfApp_Reg_Auth.Pages
             var userWrker = App.DB.User.Where(x => x.Login.ToString() == LoginTB.Text & x.Password.ToString() == PassowrdTB.Text).FirstOrDefault();
             if(userWrker != null )
             {
-                MessageBox.Show($"{userWrker.User_Title.Job_Title_Name} {userWrker.Login}");
+                App.userTitle = userWrker.User_Title.Job_Title_Name;
+                MessageBox.Show($"Вход под ролью {App.userTitle}. Логин: {userWrker.Login}.");
             }
             else 
                 MessageBox.Show("Логин или пароль не совпадают");

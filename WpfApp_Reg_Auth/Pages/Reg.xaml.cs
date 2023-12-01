@@ -21,6 +21,7 @@ namespace WpfApp_Reg_Auth.Pages
     /// </summary>
     public partial class Reg : Page
     {
+        private string _passwodText;
         public Reg()
         {
             InitializeComponent();
@@ -47,8 +48,8 @@ namespace WpfApp_Reg_Auth.Pages
                 errorMessage.AppendLine("Дата рождения не введена.");
             if (LogTB.Text == "")
                 errorMessage.AppendLine("Логин не введен.");
-            if (PasswordTB.Text == "")
-                errorMessage.AppendLine("Пароль не введен.");
+            if (PasswordTB.Text == null || PasswordTB.Text == "" || PasswordTB.Text.Length <6 || !PasswordTB.Text.Any(char.IsUpper) || !PasswordTB.Text.Any(char.IsDigit) || PasswordTB.Text.IndexOfAny("!@#$%^".ToCharArray()) == -1)
+                errorMessage.AppendLine("Пароль имеет неверный формат.");
 
             if (errorMessage.Length > 0)
             {
@@ -61,7 +62,7 @@ namespace WpfApp_Reg_Auth.Pages
                 App.DB.User.Add(new User()
                 {
                     Login = LogTB.Text,
-                    Password = int.Parse(PasswordTB.Text),
+                    Password = PasswordTB.Text,
                     ID_Job_Title = 40
                 });
                 App.DB.SaveChanges();
@@ -77,6 +78,8 @@ namespace WpfApp_Reg_Auth.Pages
                     ID_user = App.DB.User.OrderByDescending(x => x.ID).First().ID
                 });
                 App.DB.SaveChanges();
+                MessageBox.Show("Uzbek");
+                ModernNavigationSystem.NextPage(new PageComponent("Вход", new Enter()));
             }
         }
     }
